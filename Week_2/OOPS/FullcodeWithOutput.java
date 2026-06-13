@@ -5,5 +5,10 @@ public interface Playable{
 class Veena implements Playable{
   public void play(){
     System.out.println("Playing Veena");
+ }
 }
-  
+class Saxophone implements Playable{
+  public void play(){
+    System.out.println("Playing Saxophone");
+  }
+}
