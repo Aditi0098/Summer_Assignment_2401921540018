@@ -1,43 +1,23 @@
-class MyQueue {
-    private final Stack<Integer> input;
-    private final Stack<Integer> output;
+class RecentCounter {
+    Queue<Integer> queue;
 
-    public MyQueue() {
-        input = new Stack<>();
-        output = new Stack<>();
+    public RecentCounter() {
+        queue = new LinkedList();
         
     }
     
-    public void push(int x) {
-        input.push(x);
-        
-    }
-    
-    public int pop() {
-        peek();
-        return output.pop();
-        
-    }
-    
-    public int peek() {
-        if(output.empty())
-         while(!input.empty())
-          output.push(input.pop());
-        return output.peek();
-        
-    }
-    
-    public boolean empty() {
-        return input.empty() && output.empty();
+    public int ping(int t) {
+        queue.add(t);
+        while(!queue.isEmpty() && t-3000 > queue.peek()){
+            queue.poll();
+        }
+        return queue.size();
         
     }
 }
 
 /**
- * Your MyQueue object will be instantiated and called as such:
- * MyQueue obj = new MyQueue();
- * obj.push(x);
- * int param_2 = obj.pop();
- * int param_3 = obj.peek();
- * boolean param_4 = obj.empty();
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter obj = new RecentCounter();
+ * int param_1 = obj.ping(t);
  */
