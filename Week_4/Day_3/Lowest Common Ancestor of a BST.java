@@ -15,7 +15,7 @@ class Solution {
             int curr = root.val;
             if(min<curr && max < curr){
                 root = root.left;
-            }else if (min< curr && max<curr){
+            }else if (min>curr && max>curr){
                 root = root.right;
             }else{
                 break;
